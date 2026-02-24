@@ -24,10 +24,16 @@ function buttonToggle(id){
     interviewButton.classList.add('btn-soft')
     rejcetButton.classList.add('btn-soft')
 
-  
-
     const select = document.getElementById(id)
     console.log(select)
     select.classList.remove('btn-soft')
     select.classList.add('btn-primary')
 }
+
+mainContainer.addEventListener('click', function(event){
+    const target = event.target.parentNode.parentNode
+
+    const head = target.querySelector('')
+    
+    console.log(target)
+})
