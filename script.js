@@ -44,7 +44,7 @@ function buttonToggle(id) {
   }
 }
 
-mainContainer.addEventListener("click", function (event) {
+document.addEventListener("click", function (event) {
   if (event.target.classList.contains("btn-success")) {
     const target = event.target.parentNode.parentNode;
 
@@ -68,8 +68,10 @@ mainContainer.addEventListener("click", function (event) {
     if (!itemExist) {
       interviewList.push(cardInfo);
     }
+    rejcetList = rejcetList.filter((item) => item.head != cardInfo.head);
     calculateCount();
     renderInterview();
+
   } else if (event.target.classList.contains("btn-error")) {
     const target = event.target.parentNode.parentNode;
 
@@ -93,6 +95,7 @@ mainContainer.addEventListener("click", function (event) {
     if (!itemExist) {
       rejcetList.push(cardInfo);
     }
+    interviewList = interviewList.filter((item) => item.head != cardInfo.head);
     calculateCount();
     renderReject();
   }
