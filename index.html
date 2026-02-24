@@ -46,9 +46,9 @@
             <h2 class="text-[17px]"><span>0</span> Jobs</h2>
         </div>
         <div class="space-x-3 mt-6 mb-4">
-            <button class="btn btn-primary btn-soft">All</button>
-            <button class="btn btn-primary btn-soft">Interview</button>
-            <button class="btn btn-primary btn-soft">Rejected</button>
+            <button onclick="buttonToggle('all-btn')" id="all-btn" class="btn btn-primary">All</button>
+            <button onclick="buttonToggle('inter-btn')" id="inter-btn" class="btn btn-primary btn-soft">Interview</button>
+            <button onclick="buttonToggle('rej-btn')" id="rej-btn" class="btn btn-primary btn-soft">Rejected</button>
         </div>
 
         <div id="main-container" class="space-y-5 mt-10">
@@ -232,6 +232,8 @@
 
         </div>
     </section>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
