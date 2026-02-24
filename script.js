@@ -1,5 +1,6 @@
 let interviewList = [];
 let rejcetList = [];
+let currentTab = "all-btn"; 
 
 let total = document.getElementById("total-counter");
 let interCount = document.getElementById("inter-counter");
@@ -16,11 +17,24 @@ function calculateCount() {
   total.innerText = mainContainer.children.length;
   interCount.innerText = interviewList.length;
   rejCount.innerText = rejcetList.length;
+  
+  jobCounter(); 
+}
+function jobCounter() {
+  if (currentTab === "inter-btn") {
+    document.getElementById("all-jobs").innerText = interviewList.length;
+  } else if (currentTab === "rej-btn") {
+    document.getElementById("all-jobs").innerText = rejcetList.length;
+  } else {
+    document.getElementById("all-jobs").innerText = mainContainer.children.length;
+  }
 }
 
 calculateCount();
 
 function buttonToggle(id) {
+  currentTab = id; 
+
   allButton.classList.add("btn-soft");
   interviewButton.classList.add("btn-soft");
   rejcetButton.classList.add("btn-soft");
@@ -42,6 +56,7 @@ function buttonToggle(id) {
     filterSection.classList.remove("hidden");
     renderReject();
   }
+    jobCounter();
 }
 
 document.addEventListener("click", function (event) {
@@ -71,7 +86,6 @@ document.addEventListener("click", function (event) {
     rejcetList = rejcetList.filter((item) => item.head != cardInfo.head);
     calculateCount();
     renderInterview();
-
   } else if (event.target.classList.contains("btn-error")) {
     const target = event.target.parentNode.parentNode;
 
