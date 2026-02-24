@@ -112,6 +112,21 @@ document.addEventListener("click", function (event) {
     interviewList = interviewList.filter((item) => item.head != cardInfo.head);
     calculateCount();
     renderReject();
+  } else if (event.target.closest(".delete-icon")) {
+
+    const card = event.target.closest(".box");
+    const jobTitle = card.querySelector(".head").innerText;
+
+    interviewList = interviewList.filter((item) => item.head != jobTitle);
+    rejcetList = rejcetList.filter((item) => item.head != jobTitle);
+
+    const allHeadings = document.querySelectorAll(".head");
+    for (let heading of allHeadings) {
+      if (heading.innerText == jobTitle) {
+        heading.closest(".box").remove();
+      }
+    }
+    calculateCount();
   }
 });
 
